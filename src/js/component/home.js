@@ -1,12 +1,26 @@
-import React from "react";
-import { Exeple } from "./exeple.js";
+import React, { useState } from "react";
 
 export function Home() {
+	// JS aqui abaixo
+	const [toDo, setToDo] = useState([
+		"Tomar banho",
+		"Escovar os Dentes",
+		"Tirar o lixo",
+		"Brincar com o Alexandre",
+		"Fazer Comida"
+	]);
+	const [newTask, setNewTask] = useState("");
+
+	// JS somente acima
+
 	return (
 		<>
-			<h1>test</h1>
-
-			<Exeple />
+			<input
+				type="text"
+				onChange={event => setNewTask(event.target.value)}
+				value={newTask}></input>
+			<p>{newTask}</p>
+			<p>{toDo}</p>
 		</>
 	);
 }
