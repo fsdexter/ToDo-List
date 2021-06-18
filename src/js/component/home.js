@@ -22,7 +22,20 @@ export function Home() {
 			<input
 				type="text"
 				onChange={event => setNewTask(event.target.value)}
-				value={newTask}></input>
+				value={newTask}
+			/>
+			<input
+				type="text"
+				placeholder="New Task"
+				onChange={event => {
+					this.setState({ query: event.target.value });
+				}}
+				onKeyPress={event => {
+					if (event.key === "o") {
+						this.setNewTask(event.target.value);
+					}
+				}}
+			/>
 			<p>{newTask}</p>
 			<ul>{toDoList}</ul>
 		</>
