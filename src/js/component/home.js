@@ -11,6 +11,10 @@ export function Home() {
 	]);
 	const [newTask, setNewTask] = useState("");
 
+	const toDoList = toDo.map((task, i) => {
+		return <li key={i}>{task}</li>;
+	});
+
 	// JS somente acima
 
 	return (
@@ -20,7 +24,7 @@ export function Home() {
 				onChange={event => setNewTask(event.target.value)}
 				value={newTask}></input>
 			<p>{newTask}</p>
-			<p>{toDo}</p>
+			<ul>{toDoList}</ul>
 		</>
 	);
 }
