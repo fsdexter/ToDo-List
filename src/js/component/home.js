@@ -11,8 +11,22 @@ export function Home() {
 	]);
 	const [newTask, setNewTask] = useState("");
 
+	function del(i) {
+		setToDo(toDo.filter((tarea, index) => index !== i));
+	}
+
 	const toDoList = toDo.map((task, i) => {
-		return <li key={i}>{task}</li>;
+		return (
+			<li key={Math.random() * 10000}>
+				<button
+					onClick={
+						() => del(i)
+						//setToDo(toDo.filter((tarea, index) => index !== i))
+					}
+				/>
+				{task}
+			</li>
+		);
 	});
 
 	// JS somente acima
@@ -21,22 +35,17 @@ export function Home() {
 		<>
 			<input
 				type="text"
-				onChange={event => setNewTask(event.target.value)}
-				value={newTask}
-			/>
-			<input
-				type="text"
 				placeholder="New Task"
 				onChange={event => {
-					this.setState({ query: event.target.value });
+					setNewTask(event.target.value);
 				}}
 				onKeyPress={event => {
-					if (event.key === "o") {
-						this.setNewTask(event.target.value);
+					if (event.key === "Enter") {
+						setToDo([...toDo, event.target.value]);
 					}
 				}}
 			/>
-			<p>{newTask}</p>
+
 			<ul>{toDoList}</ul>
 		</>
 	);
