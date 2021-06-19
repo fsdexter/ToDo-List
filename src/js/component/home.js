@@ -17,7 +17,7 @@ export function Home() {
 
 	const toDoList = toDo.map((task, i) => {
 		return (
-			<li key={Math.random() * 10000}>
+			<li key={i}>
 				<button
 					onClick={
 						() => del(i)
