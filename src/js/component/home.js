@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./home.scss";
 
 export function Home() {
 	// JS aqui abaixo
@@ -18,12 +19,7 @@ export function Home() {
 	const toDoList = toDo.map((task, i) => {
 		return (
 			<li key={i}>
-				<button
-					onClick={
-						() => del(i)
-						//setToDo(toDo.filter((tarea, index) => index !== i))
-					}
-				/>
+				<button onClick={() => del(i)} />
 				{task}
 			</li>
 		);
