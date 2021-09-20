@@ -14,8 +14,14 @@ export function Home() {
 	const counter = toDo.length;
 	const enterHandler = event => {
 		if (event.key === "Enter") {
-			setToDo([...toDo, event.target.value]);
-			setNewTask("");
+			if (event.target.value == "") {
+				alert("YOU NEED TO PUT A VALID TASK");
+			} else if (toDo.includes(event.target.value)) {
+				alert("THIS TASK IS ALREADY ON YOUR LIST");
+			} else {
+				setToDo([...toDo, event.target.value]);
+				setNewTask("");
+			}
 		}
 	};
 
