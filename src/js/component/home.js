@@ -3,6 +3,7 @@ import "./home.scss";
 
 export function Home() {
 	// JS aqui abaixo
+	const [newTask, setNewTask] = useState("");
 	const [toDo, setToDo] = useState([
 		"Tomar banho",
 		"Escovar os Dentes",
@@ -11,7 +12,12 @@ export function Home() {
 		"Fazer Comida"
 	]);
 	const counter = toDo.length;
-	const [newTask, setNewTask] = useState("");
+	const enterHandler = event => {
+		if (event.key === "Enter") {
+			setToDo([...toDo, event.target.value]);
+			setNewTask("");
+		}
+	};
 
 	function del(i) {
 		setToDo(toDo.filter((iten, index) => index !== i));
@@ -51,12 +57,7 @@ export function Home() {
 								onChange={event => {
 									setNewTask(event.target.value);
 								}}
-								onKeyPress={event => {
-									if (event.key === "Enter") {
-										setToDo([...toDo, event.target.value]);
-										setNewTask("");
-									}
-								}}
+								onKeyPress={enterHandler}
 							/>
 						</center>
 					</div>
