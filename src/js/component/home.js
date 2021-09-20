@@ -63,7 +63,11 @@ export function Home() {
 				</div>
 				<div className="row justify-content-md-center">
 					<div className="col col-lg-8 mt-3">
-						<ul>{toDoList}</ul>
+						{counter > 0 ? (
+							<ul>{toDoList}</ul>
+						) : (
+							<p>No tasks, add a task</p>
+						)}
 					</div>
 				</div>
 				<div className="row justify-content-md-center">
