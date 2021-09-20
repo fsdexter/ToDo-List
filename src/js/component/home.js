@@ -10,6 +10,7 @@ export function Home() {
 		"Brincar com o Alexandre",
 		"Fazer Comida"
 	]);
+	const counter = toDo.length;
 	const [newTask, setNewTask] = useState("");
 
 	function del(i) {
@@ -63,6 +64,13 @@ export function Home() {
 				<div className="row justify-content-md-center">
 					<div className="col col-lg-8 mt-3">
 						<ul>{toDoList}</ul>
+					</div>
+				</div>
+				<div className="row justify-content-md-center">
+					<div className="col col-lg-8 mt-3">
+						<center>
+							<p>YOU HAVE {counter} TASKS TODO</p>
+						</center>
 					</div>
 				</div>
 				<div className="text-center">Made by Felipe</div>
